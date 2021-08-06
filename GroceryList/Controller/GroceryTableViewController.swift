@@ -73,7 +73,7 @@ class GroceryTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-  /*  @IBAction func deleteAllItems(_ sender: Any) {
+    @IBAction func deleteAllItems(_ sender: Any) {
         
         let deleteController = UIAlertController(title: "Delete all", message: "Do you really want to delete all your items?" , preferredStyle: .alert)
         
@@ -98,14 +98,14 @@ class GroceryTableViewController: UITableViewController {
                 print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
             }
             }
+            
             let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
             deleteController.addAction(addDeleteButton)
             deleteController.addAction(cancelButton)
             
             self.present(deleteController, animated: true, completion: nil)
         }
-        
-    } */
+    }
     
     // MARK: - Table view data source
     
@@ -136,7 +136,7 @@ class GroceryTableViewController: UITableViewController {
         
     }
     
-    
+       
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         groceries[indexPath.row].completed = !groceries[indexPath.row].completed
@@ -145,11 +145,13 @@ class GroceryTableViewController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
-     if segue.identifier == "appInfo" {
-         let viewCont = segue.destination as! AppearanceInfoViewController
-         viewCont.infoText = "In Grocery shopping list app\n you can add items to a list,\n check that you got them,\n and delete one or all items from your list"
-     }
-    
+        
+        if segue.identifier == "appInfo" {
+            let viewCont = segue.destination as! AppearanceInfoViewController
+            viewCont.infoText = "In Grocery shopping list app\n you can add items to a list,\n check that you got them,\n and delete one or all items from your list"
+        }
+        
     }
+    
+    
 }
